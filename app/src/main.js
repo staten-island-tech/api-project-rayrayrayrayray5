@@ -7,7 +7,8 @@ async function getData(poke) {
     } else {
       //converts response into json we can use
       const data = await response.json();
-      document.getElementById("api-response").textContent = data.name;
+      console.log(data.name);
+      console.log(data.id);
     }
   } catch (error) {
     console.log(error);
