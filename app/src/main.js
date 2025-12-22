@@ -1,18 +1,19 @@
-async function getData(poke) {
+async function getData(number) {
   try {
     //get data from API
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke}`);
+    const response = await fetch(
+      `https://binaryjazz.us/wp-json/genrenator/v1/genre/${number}`
+    );
     if (response.status != 200) {
       throw new Error(response);
     } else {
       //converts response into json we can use
       const data = await response.json();
-      console.log(data.name);
-      console.log(data.id);
+      console.log(data);
     }
   } catch (error) {
     console.log(error);
   }
 }
 
-getData("Squirtle");
+getData("2");
