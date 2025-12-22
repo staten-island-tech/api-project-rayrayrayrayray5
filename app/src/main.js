@@ -2,7 +2,7 @@ async function getData(number) {
   try {
     //get data from API
     const response = await fetch(
-      `https://binaryjazz.us/wp-json/genrenator/v1/genre/${number}`
+      `https://rickandmortyapi.com/api/character/${number}`
     );
     if (response.status != 200) {
       throw new Error(response);
@@ -16,4 +16,4 @@ async function getData(number) {
   }
 }
 
-getData("2");
+getData("35");
