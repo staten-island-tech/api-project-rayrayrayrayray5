@@ -16,4 +16,4 @@ async function getData(number) {
   }
 }
 
-getData("35");
+getData("36");
