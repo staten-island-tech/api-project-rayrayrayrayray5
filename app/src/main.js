@@ -1,8 +1,8 @@
-async function getData(type, number) {
+async function getData(number) {
   try {
     //get data from API
     const response = await fetch(
-      `https://rickandmortyapi.com/api/${type}/${number}`
+      `https://rickandmortyapi.com/api/characters/${number}`
     );
     if (response.status != 200) {
       throw new Error(response);
@@ -16,8 +16,8 @@ async function getData(type, number) {
   }
 }
 
-getData("location", "36");
-
+getData("36");
+/* 
 function inject(item) {
   const container = document.querySelector(".app");
   container.insertAdjacentHTML(
@@ -29,4 +29,4 @@ function inject(item) {
         <h3 class="length">${item.length}</h3>
       </div>`
   );
-}
+} */
