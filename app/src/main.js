@@ -1,24 +1,24 @@
+let realData = [];
+
 async function getData(number) {
   try {
     //get data from API
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/characters/${number}`
-    );
+    const response = await fetch(`https://rickandmortyapi.com/api/character`);
     if (response.status != 200) {
       throw new Error(response);
     } else {
       //converts response into json we can use
       const data = await response.json();
-      document.getElementById("api-response").textContent = data.content;
+      realData.push(data);
+      console.log(realData);
     }
   } catch (error) {
     console.log(error);
   }
 }
-
 getData("36");
-/* 
-function inject(item) {
+
+/* function getData(item) {
   const container = document.querySelector(".app");
   container.insertAdjacentHTML(
     "afterbegin",
