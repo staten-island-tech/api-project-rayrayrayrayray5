@@ -1,6 +1,5 @@
 let realData = [];
-
-async function getData(number) {
+async function getData() {
   try {
     //get data from API
     const response = await fetch(`https://rickandmortyapi.com/api/character`);
@@ -16,7 +15,7 @@ async function getData(number) {
     console.log(error);
   }
 }
-getData("36");
+getData();
 
 /* function getData(item) {
   const container = document.querySelector(".app");
