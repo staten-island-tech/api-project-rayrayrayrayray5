@@ -1,4 +1,3 @@
-let realData = [];
 async function getData() {
   try {
     //get data from API
@@ -8,8 +7,9 @@ async function getData() {
     } else {
       //converts response into json we can use
       const data = await response.json();
-      realData.push(data);
-      console.log(realData);
+      data.results.forEach((item) => {
+        console.log(item);
+      });
     }
   } catch (error) {
     console.log(error);
