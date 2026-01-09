@@ -1,4 +1,15 @@
 async function getData() {
+  function inject(item) {
+    const container = document.querySelector(".app");
+    container.insertAdjacentHTML(
+      "afterbegin",
+      `   <img class="png" src="${item.image}"> 
+        <h2>${item.name}</h2>
+        <h2 class="artist">${item.status}</h2>
+        <h2 class="length">${item.species}</h2>
+      </div>`
+    );
+  }
   try {
     //get data from API
     const response = await fetch(`https://rickandmortyapi.com/api/character`);
@@ -8,7 +19,7 @@ async function getData() {
       //converts response into json we can use
       const data = await response.json();
       data.results.forEach((item) => {
-        console.log(item);
+        inject(item);
       });
     }
   } catch (error) {
