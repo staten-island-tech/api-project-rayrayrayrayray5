@@ -1,12 +1,13 @@
+import "./style.css";
 function inject(item) {
   const container = document.querySelector("section");
   container.insertAdjacentHTML(
     "beforeend",
     `<div class="bg-white rounded-xl overflow-hidden">
-      <img class="w-full h-75 object-cover" src="${item.image}"> 
+      <img class="w-full h-72 object-cover" src="${item.image}"> 
       <div class="text-base p-4 space-y-1">
         <h2 class="font-semibold">${item.name} </h2>
-        <h3 class=>Status: ${item.status} </h3>
+        <h3>Status: ${item.status} </h3>
         <h4>Species: ${item.species}</h4>
         <h5>Last Location: ${item.location.name}</h5>
         </div>
@@ -53,7 +54,7 @@ async function search(id) {
     }
   } catch (error) {
     clear();
-    document.querySelector(".flex").innerHTML =
+    document.querySelector("section").innerHTML =
       "<p class='text-3xl'>Available IDs are 1-826</p>";
   }
 }
