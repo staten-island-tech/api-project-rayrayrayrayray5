@@ -7,8 +7,8 @@ async function getData() {
       <img class="w-full h-75 object-cover" src="${item.image}"> 
       <div class="text-base p-4 space-y-1">
         <h2 class="font-semibold">${item.name} </h2>
-        <h3 class=>${item.status} </h3>
-        <h4>${item.species}</h4>
+        <h3 class=>Status: ${item.status} </h3>
+        <h4>Species: ${item.species}</h4>
         </div>
       </div>`
     );
