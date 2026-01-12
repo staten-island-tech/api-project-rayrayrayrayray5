@@ -1,18 +1,19 @@
-async function getData() {
-  function inject(item) {
-    const container = document.querySelector(".flex");
-    container.insertAdjacentHTML(
-      "beforeend",
-      `<div class="bg-white rounded-xl overflow-hidden">
+function inject(item) {
+  const container = document.querySelector("section");
+  container.insertAdjacentHTML(
+    "beforeend",
+    `<div class="bg-white rounded-xl overflow-hidden">
       <img class="w-full h-75 object-cover" src="${item.image}"> 
       <div class="text-base p-4 space-y-1">
         <h2 class="font-semibold">${item.name} </h2>
         <h3 class=>Status: ${item.status} </h3>
         <h4>Species: ${item.species}</h4>
+        <h5>Last Location: ${item.location.name}</h5>
         </div>
       </div>`
-    );
-  }
+  );
+}
+async function getData() {
   try {
     //get data from API
     for (let page = 1; page <= 10; page++) {
@@ -34,6 +35,33 @@ async function getData() {
   }
 }
 getData();
+
+function clear() {
+  document.querySelector("section").innerHTML = "";
+}
+async function search(id) {
+  try {
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/character/${id}`
+    );
+    if (response.status != 200) {
+      throw new Error("No Character");
+    } else {
+      const data = await response.json();
+      clear();
+      inject(data);
+    }
+  } catch (error) {
+    clear();
+    document.querySelector(".flex").innerHTML =
+      "<p class='text-3xl'>Available IDs are 1-826</p>";
+  }
+}
+
+document.getElementById("searchBtn").addEventListener("click", () => {
+  const id = document.getElementById("search").value;
+  if (id) search(id);
+});
 
 /* function getData(item) {
   const container = document.querySelector(".app");

@@ -6,7 +6,11 @@
     <link href="/src/style.css" rel="stylesheet" />
   </head>
   <body class="bg-gray-500">
-    <h1 class="text-3xl font-bold underline">Ricky and Morty Data</h1>
+    <h1 class="text-center text-3xl font-bold underline pt-3 pb-6">Ricky and Morty Data</h1>
+     <div class="flex justify-center items-center gap-2 pb-6">
+    <input id="search" type="number" placeholder="Enter ID" class="border p-2 rounded bg-white"></input>
+    <button id="searchBtn" class="bg-blue-500 text-white p-2 rounded">Search</button>
+    </div>
     <section
       class="flex grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6"
     ></section>
