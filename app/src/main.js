@@ -54,8 +54,9 @@ async function search(id) {
     }
   } catch (error) {
     clear();
-    document.querySelector("section").innerHTML =
-      "<h1 class=text-3xl>Available IDs are 1-826</h1>";
+    document.querySelector(
+      "section"
+    ).innerHTML = `<h1 class="text-3xl">Available IDs are 1-826</h1>`;
   }
 }
 
